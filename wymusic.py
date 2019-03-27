@@ -4,7 +4,7 @@ Created on Thu Mar 21 19:45:13 2019
 
 @author: One
 """
-# 617571928
+
 import requests 
 from  lxml import etree
 import json
