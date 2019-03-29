@@ -1,6 +1,6 @@
 /smartZN/images
 /smartZN/.idea
-/smartZN/_pycache_
+/smartZN/__pycache__
 /smartZ/venv
 /smartZ/audio.mp3
 /smartZ/input.wav
