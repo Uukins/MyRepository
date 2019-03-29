@@ -1,7 +1,3 @@
-/smartZN/images
-/smartZN/.idea
-/smartZN/__pycache__
-/smartZ/venv
 /smartZ/audio.mp3
 /smartZ/input.wav
 /smartZ/ichat.pkl
@@ -10,3 +6,7 @@
 /smartZ/Smart.spec
 /smartZ/wechat_post.txt
 /smartZ/wechat_order.txt
+/smartZN/images
+/smartZN/.idea
+/smartZN/__pycache__
+/smartZ/venv
