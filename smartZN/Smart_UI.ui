@@ -249,7 +249,7 @@ QPushButton:hover{
       <x>470</x>
       <y>3</y>
       <width>403</width>
-      <height>371</height>
+      <height>372</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1452,44 +1452,7 @@ font: 10pt &quot;微软雅黑&quot;;</string>
               </font>
              </property>
              <property name="text">
-              <string>插入当前数据</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="yuyinzhushou">
-             <property name="minimumSize">
-              <size>
-               <width>88</width>
-               <height>31</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>88</width>
-               <height>31</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>微软雅黑</family>
-               <pointsize>11</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>语音助手</string>
-             </property>
-             <property name="checkable">
-              <bool>false</bool>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
+              <string>插入数据</string>
              </property>
             </widget>
            </item>

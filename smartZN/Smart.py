@@ -173,7 +173,7 @@ class Smart(QWidget,Ui_Form):
         self.getyoutips()
         self.refresh.clicked.connect(self.getyoutips)
 
-        self.yuyinzhushou.clicked.connect(self.wake_run)
+
         self.AIrun()
 
 

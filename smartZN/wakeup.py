@@ -10,8 +10,8 @@ speech = LiveSpeech(
     no_search=False,
     full_utt=False,
     hmm=os.path.join(model_path, 'cmusphinx-en-us-8khz-5.2'),
-    lm=os.path.join(model_path, '0409.lm'),
-    dic=os.path.join(model_path, '0409.dic')
+    lm=os.path.join(model_path, '6618.lm'),
+    dic=os.path.join(model_path, '6618.dic')
 )
 def sphinx():
     for phrase in speech:
