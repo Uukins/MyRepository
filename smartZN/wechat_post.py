@@ -1,9 +1,15 @@
 import itchat
 
-usageMsg = u"1.查询数据          \n" \
-           u"2.查询天气          \n" \
-           u"3.窗户状态          \n" \
-           u"4.当前模式            "
+usageMsg = u"    1.查询室内数据          \n" \
+           u"    2.查询当前天气          \n" \
+           u"    3.查看窗户状态          \n" \
+           u"    4.查看当前模式         \n" \
+           u"    5.切换手动模式          \n" \
+           u"    6.切换自动模式          \n" \
+           u"    7.打开窗户          \n" \
+           u"    8.关闭窗户          \n" \
+
+
 
 def dates():
     with open('wechat_post.txt','r')as f:
@@ -32,16 +38,16 @@ def text_reply(msg):
             itchat.send(window, "filehelper")
         if message == "4":
             itchat.send(state, "filehelper")
-        if message== "手动":
+        if message== "5":
             with open('wechat_order.txt', 'w')as f:
                 f.write('A')
-        if message == "自动":
+        if message == "6":
             with open('wechat_order.txt', 'w')as f:
                 f.write('B')
-        if message == "开窗":
+        if message == "7":
             with open('wechat_order.txt', 'w')as f:
                 f.write('C')
-        if message == "关窗":
+        if message == "8":
             with open('wechat_order.txt', 'w')as f:
                 f.write('D')
 

@@ -541,7 +541,7 @@ class Smart(QWidget,Ui_Form):
             except Exception as e:
                 print(e)
                 # QMessageBox.critical(self, '警告', '串口不存在或被占用') # AI触发异常会出现冲突卡死,转为语音播报异常
-                text = '警告,串口不存在或已被占用'
+                text = '未连接上蓝牙,请连接蓝牙重启软件'
                 Synthesizer_Play(text)
                 return None
         else:
