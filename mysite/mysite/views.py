@@ -1,8 +1,10 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render,redirect
 from read_statistics.utils import get_seven_days_read_data,get_today_hot_data,get_yesterday_hot_data,get_7_days_hot_bogs,get_30_days_hot_bogs
 from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from blog.models import Blog
+from django.contrib import auth
+from django.urls import reverse
 
 
 
@@ -23,4 +25,15 @@ def home(request):
     context['yesterday_hot_data'] = get_yesterday_hot_data(blog_content_type)
     context['hot_blogs_for_7_days'] = get_7_days_hot_bogs()
     context['hot_blogs_for_30_days'] = get_30_days_hot_bogs()
-    return render_to_response('home.html',context)
+    return render(request,'home.html',context)
+
+def login(request):
+    username = request.POST.get('username','')
+    password = request.POST.get('password','')
+    user = auth.authenticate(request, username=username, password=password)
+    referer = request.META.get('HTTP_REFERER',reverse('home'))
+    if user is not None:
+        auth.login(request, user)
+        return redirect(referer)
+    else:
+        return render(request,'error.html',{'message':'用户名或密码不正确'})

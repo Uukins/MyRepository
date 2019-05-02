@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/',admin.site.urls),
     path('blog/',include('blog.urls')),
     path('ckeditor',include('ckeditor_uploader.urls')),
+    path('login/',views.login,name='login'),
+    path('comment/',include('comment.urls')),
 ]
 
 # 上传图片地址
