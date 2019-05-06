@@ -12,52 +12,13 @@
 {% block nav_home_active %}active{% endblock %}
 
 {% block content %}
-    <h3 class = 'home-content'>欢迎访问!</h3>
+    <!-- <h3 class = 'home-content'>欢迎访问</h3> -->
+    <div class="jumbotron">
+        <h1 class="home-content" style="text-align:center">欢迎访问!</h1>
+        <p style="text-align:center;padding-top:5px ">这是一个你未曾见过的全新网站!<br>还在等待什么?你值得拥有!</p>
+        <p style="padding-right:2em;padding-bottom: 2px"><a class="btn btn-primary btn-lg pull-right" href="#" role="button" >点击加入做兄弟</a></p>
+    </div>
     <div id="container"></div>
-    <div class="hot-data">
-        <!-- 今天的热门博客-->
-        <h3>今天热门博客</h3>
-        <ul>
-        {% for hot_data in today_hot_data %}
-            <li><a href="{% url 'blog_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>&nbsp;({{ hot_data.read_num }})</li>
-        {% empty %}
-            <li>今天暂无热门博客</li>
-        {% endfor %}
-        </ul>
-    </div>
-    <div class="hot-data">
-        <!-- 昨天的热门博客-->
-        <h3>昨天热门博客</h3>
-        <ul>
-        {% for hot_data in yesterday_hot_data %}
-            <li><a href="{% url 'blog_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>&nbsp;({{ hot_data.read_num }})</li>
-        {% empty %}
-            <li>昨天暂无热门博客</li>
-        {% endfor %}
-        </ul>
-    </div>
-    <div class="hot-data">
-        <!-- 7天的热门博客-->
-        <h3>7天热门博客</h3>
-        <ul>
-        {% for hot_blog in hot_blogs_for_7_days %}
-            <li><a href="{% url 'blog_detail' hot_blog.id %}">{{ hot_blog.title }}</a>&nbsp;({{ hot_blog.read_num_sum }})</li>
-        {% empty %}
-            <li>暂无热门博客</li>
-        {% endfor %}
-        </ul>
-    </div>
-    <div class="hot-data">
-        <!-- 30天的热门博客-->
-        <h3>30天热门博客</h3>
-        <ul>
-        {% for hot_blog in hot_blogs_for_30_days %}
-            <li><a href="{% url 'blog_detail' hot_blog.id %}">{{ hot_blog.title }}</a>&nbsp;({{ hot_blog.read_num_sum }})</li>
-        {% empty %}
-            <li>暂无热门博客</li>
-        {% endfor %}
-        </ul>
-    </div>
     <script>
         // 图表配置
         var options = {
@@ -90,4 +51,5 @@
         // 图表初始化函数
         var chart = Highcharts.chart('container', options);
     </script>
+
 {% endblock %}

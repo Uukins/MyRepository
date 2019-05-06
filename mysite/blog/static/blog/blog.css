@@ -34,9 +34,23 @@ div.blog_more{
 
 div.comment-are{
      margin-top:2em;
+
 }
 
 h3.comment-area-title{
      border-bottom: 1px solid #ccc;
      padding-bottom:0.4em;
+}
+div.django-ckeditor-widget{
+     width:100%;
+}
+
+div.comment{
+     border-bottom:1px solid #cccccc;
+     margin-bottom:0.5em;
+     padding-bottom:0.5em;
+
+}
+div.reply{
+     margin-left:2em;
 }

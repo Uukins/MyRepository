@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>{% block title%}{% endblock %}</title>
-
     <link rel="stylesheet" href="{% static 'base.css ' %}">
     <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
     <script type="text/javascript" src="{% static 'jquery-1.12.4.min.js'%}"></script>
     <script type="text/javascript" src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js'%}"></script>
-
+    <link rel="shortcut icon" href="D:/Git/GitRepository/MyRepository/mysite/templates/ico.ico" type="image/x-icon">
     {% block header_extends %}{% endblock %}
 
 </head>
@@ -31,12 +29,19 @@
                 <ul class="nav navbar-nav">
                     <li class="{% block nav_home_active %}{% endblock %}"><a href="{% url 'home' %}">首页</a></li>
                     <li class="{% block nav_blog_active %}{% endblock %}"><a href="{% url 'blog_list' %}">博客</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="{% block nav_user_active %}{% endblock %}" style='padding-left: 1325px'><a href="{% url 'blog_list' %}">你好,{{user.username}}</a></li></li>
+                    {% else %}
+                        <li class="{% block nav_login_active %}{% endblock %} " style='padding-left: 1325px'><a href="{% url 'login' %}?from={{ request.get_full_path }}">登录</a></li>
+                        <li class="{% block nav_register_active %}{% endblock %} "><a href="{% url 'register' %}?from={{ request.get_full_path }}">注册</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </div>
 
     {% block content %}{% endblock %}
+    {% block script_extends %}{% endblock %}
 
 </body>
 </html>
