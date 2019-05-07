@@ -2,14 +2,12 @@ from django.shortcuts import get_object_or_404,render
 from django.core.paginator import Paginator
 from django.db.models import Count
 from .models import Blog,BlogType
-from read_statistics.models import ReadNum
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from read_statistics.utils import read_statistics_once_read
-from comment.models import Comment
-from comment.forms import CommentForm
 from read_statistics.utils import get_seven_days_read_data,get_today_hot_data,get_yesterday_hot_data,get_7_days_hot_bogs,get_30_days_hot_bogs
 from django.core.cache import cache
+from mysite.forms import LoginForm
 
 
 def get_blog_list_common_data(request,blogs_all_list):
@@ -96,15 +94,12 @@ def blogs_with_date(request,year,month):
 def blog_detail(request,blog_pk):
     blog =get_object_or_404(Blog,pk = blog_pk)
     read_cookie_key = read_statistics_once_read(request,blog)
-    blog_content_type = ContentType.objects.get_for_model(blog)
-    comments = Comment.objects.filter(content_type=blog_content_type,object_id=blog.pk,parent=None)
 
     context={}
     context['previous_blog'] = Blog.objects.filter(created_time__gt=blog.created_time).last()
     context['next_blog'] = Blog.objects.filter(created_time__lt=blog.created_time).first()
     context['blog'] = blog
-    context['comments'] = comments.order_by('-comment_time')
-    context['comment_form'] = CommentForm(initial={'content_type':blog_content_type,'object_id':blog_pk,'reply_comment_id':0})
+    context['login_form']=LoginForm()
     response = render(request,'blog/blog_detail.html',context) #响应
     response.set_cookie(read_cookie_key,'true') # 阅读cookie标记
     return response
