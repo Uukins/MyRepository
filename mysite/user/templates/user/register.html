@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
-{% block title %}
-    我的网站|注册
-{% endblock %}
 
-
+{% block title %}我的网站|注册{% endblock %}
 {% block nav_register_active %}active{% endblock %}
-
 {% block content %}
     <div class="container">
         <div class="row">
             <div class="col-xs-4 col-xs-offset-4">
+            {% if not user.is_authenticated %}
                 <div class="panel panel-default">
                       <div class="panel-heading">
                             <h3 class="panel-title">注册</h3>
@@ -28,6 +24,12 @@
                            </form>
                       </div>
                 </div>
+            {% else %}
+                <span>未登录,跳转到首页...</span>
+                <script type="text/javascript">
+                    window.location.href='/'
+                </script>
+            {% endif %}
             </div>
         </div>
     </div>

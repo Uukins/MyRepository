@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'read_statistics',
     'comment',
     'likes',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'user.context_processors.login_modal_form',
+                'user.context_processors.register_modal_form',
             ],
         },
     },
@@ -166,3 +169,11 @@ CACHES = {
         'LOCATION': 'my_cache_table',
     }
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'Uukins@163.com'
+EMAIL_HOST_PASSWORD='Uukins163'
+EMAIL_SUBJECT_PREFIX='[Uukins的博客]'
+EMAIL_USE_TLS = True

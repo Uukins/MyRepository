@@ -18,18 +18,16 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
-
 urlpatterns = [
     path('',views.home,name = 'home'),
     path('admin/',admin.site.urls),
     path('blog/',include('blog.urls')),
-    path('ckeditor',include('ckeditor_uploader.urls')),
-    path('login/',views.login,name='login'),
-    path('login_for_medal/',views.login_for_medal,name='login_for_medal'),
+    path('comment/', include('comment.urls')),
     path('likes/', include('likes.urls')),
-    path('register/',views.register,name='register'),
-    path('comment/',include('comment.urls')),
+    path('ckeditor',include('ckeditor_uploader.urls')),
+    path('user/',include('user.urls')),
 ]
+
 
 # 上传图片地址
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

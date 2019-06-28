@@ -7,7 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from read_statistics.utils import read_statistics_once_read
 from read_statistics.utils import get_seven_days_read_data,get_today_hot_data,get_yesterday_hot_data,get_7_days_hot_bogs,get_30_days_hot_bogs
 from django.core.cache import cache
-from mysite.forms import LoginForm
+from user.forms import LoginForm,RegForm
 
 
 def get_blog_list_common_data(request,blogs_all_list):
@@ -100,6 +100,7 @@ def blog_detail(request,blog_pk):
     context['next_blog'] = Blog.objects.filter(created_time__lt=blog.created_time).first()
     context['blog'] = blog
     context['login_form']=LoginForm()
+    context['reg_form']=RegForm()
     response = render(request,'blog/blog_detail.html',context) #响应
     response.set_cookie(read_cookie_key,'true') # 阅读cookie标记
     return response
